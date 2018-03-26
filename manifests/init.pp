@@ -42,7 +42,11 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class web {
+class web(
+	String $package_name = $::web::params::package_name,
+	String $service_name = $::web::params::service_name,
+) inherits ::web::params {
 
-
+	class { '::web::install':  } ->
+	class { '::web::service':  }
 }
